@@ -14,9 +14,9 @@ if (isset($_POST['title']) && isset($_POST['start']) && isset($_POST['end']) && 
 
 	echo $sql;
 
-	$query = $bdd->prepare($sql);
+	$query = $conexion->prepare($sql);
 	if ($query == false) {
-		print_r($bdd->errorInfo());
+		print_r($conexion->errorInfo());
 		die('Erreur prepare');
 	}
 	$sth = $query->execute();

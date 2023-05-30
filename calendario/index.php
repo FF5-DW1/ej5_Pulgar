@@ -2,10 +2,9 @@
 require_once('bdd.php');
 
 
-$sql = "SELECT id, title, start, end, color FROM events ";
+$sql = "SELECT * FROM events ";
 
-$req = $bdd->prepare($sql);
-$req->execute();
+$req = $conexion->query($sql);
 
 $events = $req->fetchAll();
 
@@ -57,7 +56,7 @@ $events = $req->fetchAll();
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
+			!-- Brand and toggle get grouped for better mobile display --
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span>
