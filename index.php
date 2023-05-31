@@ -114,25 +114,25 @@ $events = $req->fetchAll();
 							<div class="form-group">
 								<label for="title" class="col-sm-2 control-label">Nombre</label>
 								<div class="col-sm-10">
-									<input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
+									<input type="text" name="name" class="form-control" id="name" placeholder="Titulo">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="title" class="col-sm-2 control-label">Email</label>
 								<div class="col-sm-10">
-									<input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
+									<input type="text" name="email" class="form-control" id="email" placeholder="Titulo">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="title" class="col-sm-2 control-label">Teléfono</label>
 								<div class="col-sm-10">
-									<input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
+									<input type="text" name="phone" class="form-control" id="phone" placeholder="Titulo">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="title" class="col-sm-2 control-label">Empresa</label>
 								<div class="col-sm-10">
-									<input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
+									<input type="text" name="company" class="form-control" id="company" placeholder="Titulo">
 								</div>
 							</div>
 							<div class="form-group">
@@ -191,6 +191,30 @@ $events = $req->fetchAll();
 								<label for="title" class="col-sm-2 control-label">Titulo</label>
 								<div class="col-sm-10">
 									<input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="title" class="col-sm-2 control-label">Nombre</label>
+								<div class="col-sm-10">
+									<input type="text" name="name" class="form-control" id="name" placeholder="Titulo">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="title" class="col-sm-2 control-label">Email</label>
+								<div class="col-sm-10">
+									<input type="text" name="email" class="form-control" id="email" placeholder="Titulo">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="title" class="col-sm-2 control-label">Teléfono</label>
+								<div class="col-sm-10">
+									<input type="text" name="phone" class="form-control" id="phone" placeholder="Titulo">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="title" class="col-sm-2 control-label">Empresa</label>
+								<div class="col-sm-10">
+									<input type="text" name="company" class="form-control" id="company" placeholder="Titulo">
 								</div>
 							</div>
 							<div class="form-group">
@@ -278,6 +302,10 @@ $events = $req->fetchAll();
 					element.bind('dblclick', function() {
 						$('#ModalEdit #id').val(event.id);
 						$('#ModalEdit #title').val(event.title);
+						$('#ModalEdit #name').val(event.name);
+						$('#ModalEdit #email').val(event.email);
+						$('#ModalEdit #phone').val(event.phone);
+						$('#ModalEdit #company').val(event.company);
 						$('#ModalEdit #color').val(event.color);
 						$('#ModalEdit').modal('show');
 					});
@@ -310,6 +338,10 @@ $events = $req->fetchAll();
 					?> {
 							id: '<?php echo $event['id']; ?>',
 							title: '<?php echo $event['title']; ?>',
+							name: '<?php echo $event['name']; ?>',
+							email: '<?php echo $event['email']; ?>',
+							phone: '<?php echo $event['phone']; ?>',
+							company: '<?php echo $event['company']; ?>',
 							start: '<?php echo $start; ?>',
 							end: '<?php echo $end; ?>',
 							color: '<?php echo $event['color']; ?>',

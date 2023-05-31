@@ -17,13 +17,17 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
 		print_r($query->errorInfo());
 		die('Erreur execute');
 	}
-} elseif (isset($_POST['title']) && isset($_POST['color']) && isset($_POST['id'])) {
+ } elseif (isset($_POST['title']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['company']) && isset($_POST['color']) && isset($_POST['id'])) {
 
 	$id = $_POST['id'];
 	$title = $_POST['title'];
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$phone = $_POST['phone'];
+	$company = $_POST['company'];
 	$color = $_POST['color'];
 
-	$sql = "UPDATE events SET  title = '$title', color = '$color' WHERE id = $id ";
+	$sql = "UPDATE events SET  title = '$title', name = '$name', email = '$email', phone = '$phone', company = '$company', color = '$color' WHERE id = $id ";
 
 
 	$query = $conexion->prepare($sql);
