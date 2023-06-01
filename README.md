@@ -1,1 +1,0 @@
-# ej5_Pulgar
