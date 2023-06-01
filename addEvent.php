@@ -14,9 +14,9 @@ if (isset($_POST['title']) && isset($_POST['name']) && isset($_POST['email']) &&
 	$end = $_POST['end'];
 	$color = $_POST['color'];
 
-	// $phone = str_replace([" ","-","."],"",$phone);
+	$phone = str_replace([" ","-",".","_"],"",$phone);
 
-	$sql = "SELECT * FROM events; INSERT INTO events(title, name, email, phone, company, start, end, color) values ('$title', '$name', '$email', '$phone', '$company', '$start', '$end', '$color')";
+	$sql = "SELECT * FROM events; INSERT INTO events(title, name, email, phone, company, start, end, color) values (:title, :name, :email, :phone, :company, :start, :end, :color)";
 
 		echo $sql;
 
@@ -25,6 +25,16 @@ if (isset($_POST['title']) && isset($_POST['name']) && isset($_POST['email']) &&
 			print_r($conexion->errorInfo());
 			die('Erreur prepare');
 		}
+
+		$query->bindParam(':title',$title);
+		$query->bindParam(':name',$name);
+		$query->bindParam(':email',$email);
+		$query->bindParam(':phone',$phone);
+		$query->bindParam(':company',$company);
+		$query->bindParam(':start',$start);
+		$query->bindParam(':end',$end);
+		$query->bindParam(':color',$color);
+
 		$sth = $query->execute();
 		if ($sth == false) {
 			print_r($query->errorInfo());

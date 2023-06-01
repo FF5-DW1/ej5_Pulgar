@@ -29,20 +29,30 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
 	$end = $_POST['end'];
 	$color = $_POST['color'];
 
-	$sql = "UPDATE events SET  title = '$title', name = '$name', email = '$email', phone = '$phone', company = '$company', color = '$color', start = '$start', end = '$end'  WHERE id = $id ";
+	$phone = str_replace([" ","-",".","_"],"",$phone);
+
+	$sql = "UPDATE events SET  title = :title, name = :name, email = :email, phone = :phone, company = :company, color = :color, start = :start, end = :end  WHERE id = $id ";
 		
 		$query = $conexion->prepare($sql);
 		if ($query == false) {
 			print_r($conexion->errorInfo());
 			die('Erreur prepare');
 		}
+
+		$query->bindParam(':title',$title);
+		$query->bindParam(':name',$name);
+		$query->bindParam(':email',$email);
+		$query->bindParam(':phone',$phone);
+		$query->bindParam(':company',$company);
+		$query->bindParam(':start',$start);
+		$query->bindParam(':end',$end);
+		$query->bindParam(':color',$color);
+
 		$sth = $query->execute();
 		if ($sth == false) {
 			print_r($query->errorInfo());
 			die('Erreur execute');
 		}
-
-	// $phone = str_replace([" ","-","."],"",$phone);
 
 	// if (!is_int($_POST['phone'])){
 	// 	echo "Formato no válido";
