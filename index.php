@@ -109,30 +109,87 @@ $events = $req->fetchAll();
 								<label for="title" class="col-sm-2 control-label">Titulo</label>
 								<div class="col-sm-10">
 									<input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
+									<p class="text-danger">
+										<?php
+											if (isset($_POST['title'])) {
+												if (empty($_POST['title'])) {
+													echo "Campo obligatorio";
+												} else {
+													return "";
+												}
+											}
+										?>
+									</p>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="title" class="col-sm-2 control-label">Nombre</label>
 								<div class="col-sm-10">
 									<input type="text" name="name" class="form-control" id="name" placeholder="Titulo">
+									<p class="text-danger">
+										<?php
+									if (isset($_POST['name'])) {
+										if (empty($_POST['name'])) {
+											echo "Campo obligatorio";
+										} else {
+											return "";
+										}
+									}
+										?>
+									</p>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="title" class="col-sm-2 control-label">Email</label>
 								<div class="col-sm-10">
 									<input type="text" name="email" class="form-control" id="email" placeholder="Titulo">
+									<p class="text-danger">
+										<?php
+											if (isset($_POST['email'])) {
+												if (empty($_POST['email'])) {
+													echo "Campo obligatorio";
+												} else {
+													return "";
+												}
+											}
+										?>
+									</p>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="title" class="col-sm-2 control-label">Teléfono</label>
 								<div class="col-sm-10">
 									<input type="text" name="phone" class="form-control" id="phone" placeholder="Titulo">
+									<p class="text-danger">
+										<?php
+											if (isset($_POST['phone'])){
+												if (empty($_POST['phone'])){
+													echo "Campo obligatorio";
+												} elseif (!is_int($_POST['phone'])) {
+													echo "Formato no válido";
+												} else {
+													return "";
+												}
+											}
+										?>
+									</p>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="title" class="col-sm-2 control-label">Empresa</label>
 								<div class="col-sm-10">
 									<input type="text" name="company" class="form-control" id="company" placeholder="Titulo">
+									<p class="text-danger">
+										<?php
+											if (isset($_POST['company'])) {
+												if (empty($_POST['company'])) {
+													echo "Campo obligatorio";
+												} else {
+													return "";
+												}
+											}
+										?>
+									</p>
 								</div>
 							</div>
 							<div class="form-group">
@@ -160,7 +217,7 @@ $events = $req->fetchAll();
 							<div class="form-group">
 								<label for="end" class="col-sm-2 control-label">Fecha Final</label>
 								<div class="col-sm-10">
-									<input type="time-local" name="end" class="form-control" id="end">
+									<input type="datetime-local" name="end" class="form-control" id="end">
 								</div>
 							</div>
 
@@ -191,30 +248,87 @@ $events = $req->fetchAll();
 								<label for="title" class="col-sm-2 control-label">Titulo</label>
 								<div class="col-sm-10">
 									<input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
+									<p class="text-danger">
+										<?php
+										if (isset($_POST['title'])) {
+											if (empty($_POST['title'])) {
+												echo "Campo obligatorio";
+											} else {
+												return "";
+											}
+										}
+										?>
+									</p>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="title" class="col-sm-2 control-label">Nombre</label>
 								<div class="col-sm-10">
 									<input type="text" name="name" class="form-control" id="name" placeholder="Titulo">
+									<p class="text-danger">
+										<?php
+										if (isset($_POST['name'])) {
+											if (empty($_POST['name'])) {
+												echo "Campo obligatorio";
+											} else {
+												return "";
+											}
+										}	
+										?>
+									</p>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="title" class="col-sm-2 control-label">Email</label>
 								<div class="col-sm-10">
 									<input type="text" name="email" class="form-control" id="email" placeholder="Titulo">
+									<p class="text-danger">
+										<?php
+										if (isset($_POST['email'])) {
+											if (empty($_POST['email'])) {
+												echo "Campo obligatorio";
+											} else {
+												return "";
+											}
+										}
+										?>
+									</p>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="title" class="col-sm-2 control-label">Teléfono</label>
 								<div class="col-sm-10">
 									<input type="text" name="phone" class="form-control" id="phone" placeholder="Titulo">
+									<p class="text-danger">
+									<?php
+											if (isset($_POST['phone'])){
+												if (empty($_POST['phone'])){
+													echo "Campo obligatorio";
+												} elseif (!is_int($_POST['phone'])) {
+													echo "Formato no válido";
+												} else {
+													return "";
+												}
+											}
+										?>
+									</p>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="title" class="col-sm-2 control-label">Empresa</label>
 								<div class="col-sm-10">
 									<input type="text" name="company" class="form-control" id="company" placeholder="Titulo">
+									<p class="text-danger">
+										<?php
+										if (isset($_POST['company'])) {
+											if (empty($_POST['company'])) {
+												echo "Campo obligatorio";
+											} else {
+												return "";
+											}
+										}
+										?>
+									</p>
 								</div>
 							</div>
 							<div class="form-group">
@@ -231,6 +345,18 @@ $events = $req->fetchAll();
 										<option style="color:#000;" value="#000">&#9724; Negro</option>
 
 									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="start" class="col-sm-2 control-label">Fecha y Hora Inicial</label>
+								<div class="col-sm-10">
+									<input type="datetime-local" name="start" class="form-control" id="start">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="end" class="col-sm-2 control-label">Fecha Final</label>
+								<div class="col-sm-10">
+									<input type="datetime-local" name="end" class="form-control" id="end">
 								</div>
 							</div>
 							<div class="form-group">
@@ -307,6 +433,8 @@ $events = $req->fetchAll();
 						$('#ModalEdit #phone').val(event.phone);
 						$('#ModalEdit #company').val(event.company);
 						$('#ModalEdit #color').val(event.color);
+						// $('#ModalEdit #start').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
+						// $('#ModalEdit #end').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
 						$('#ModalEdit').modal('show');
 					});
 				},

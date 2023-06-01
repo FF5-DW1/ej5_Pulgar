@@ -14,22 +14,43 @@ if (isset($_POST['title']) && isset($_POST['name']) && isset($_POST['email']) &&
 	$end = $_POST['end'];
 	$color = $_POST['color'];
 
-	$select = "SELECT * FROM events;";
-	echo $select;
+	// $phone = str_replace([" ","-","."],"",$phone);
 
-	$sql = "INSERT INTO events(title, name, email, phone, company, start, end, color) values ('$title', '$name', '$email', '$phone', '$company', '$start', '$end', '$color')";
+	$sql = "SELECT * FROM events; INSERT INTO events(title, name, email, phone, company, start, end, color) values ('$title', '$name', '$email', '$phone', '$company', '$start', '$end', '$color')";
 
-	echo $sql;
+		echo $sql;
 
-	$query = $conexion->prepare($sql);
-	if ($query == false) {
-		print_r($conexion->errorInfo());
-		die('Erreur prepare');
-	}
-	$sth = $query->execute();
-	if ($sth == false) {
-		print_r($query->errorInfo());
-		die('Erreur execute');
-	}
-}
+		$query = $conexion->prepare($sql);
+		if ($query == false) {
+			print_r($conexion->errorInfo());
+			die('Erreur prepare');
+		}
+		$sth = $query->execute();
+		if ($sth == false) {
+			print_r($query->errorInfo());
+			die('Erreur execute');
+		}
+
+	// if (empty($_POST['title']) || empty($_POST['name']) || empty($_POST['email']) || empty($_POST['phone'])) {
+	// 	echo "Campo obligatorio";
+	// } elseif (!is_int($_POST['phone'])){
+	// 	echo "Formato no válido";
+	// } else {
+	// 	$sql = "SELECT * FROM events; INSERT INTO events(title, name, email, phone, company, start, end, color) values ('$title', '$name', '$email', '$phone', '$company', '$start', '$end', '$color')";
+
+	// 	echo $sql;
+
+	// 	$query = $conexion->prepare($sql);
+	// 	if ($query == false) {
+	// 		print_r($conexion->errorInfo());
+	// 		die('Erreur prepare');
+	// 	}
+	// 	$sth = $query->execute();
+	// 	if ($sth == false) {
+	// 		print_r($query->errorInfo());
+	// 		die('Erreur execute');
+	// 	}
+	// }
+} 
+
 header('Location: ' . $_SERVER['HTTP_REFERER']);
